@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a, #38bdf8);
+    min-height: 100vh;
+    padding: 30px 15px;
+}
+
+.container {
+    width: 100%;
+    max-width: 750px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #111827;
+    font-size: 32px;
+}
+
+h2 {
+    margin-top: 35px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #1f2937;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #374151;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 18px;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(to right, #2563eb, #06b6d4);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
+}
+
+.result-box p {
+    font-size: 17px;
+    margin: 12px 0;
+    padding: 12px 15px;
+    background: #f8fafc;
+    border-left: 5px solid #2563eb;
+    border-radius: 10px;
+    color: #1f2937;
+}
+
+canvas {
+    margin-top: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+th {
+    background: #2563eb;
+    color: white;
+    padding: 14px;
+    font-size: 15px;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+    background: #f9fafb;
+}
+
+tr:nth-child(even) td {
+    background: #eff6ff;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 12px;
+    text-decoration: none;
+    background: #111827;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+a:hover {
+    background: #2563eb;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .result-box p {
+        font-size: 15px;
+    }
+
+    a {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}

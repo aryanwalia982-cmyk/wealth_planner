@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wealth Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="container result-box">
+        <h1>Your Wealth Report</h1>
+
+        <p><strong>Monthly Savings:</strong> {{ monthly_savings }}</p>
+        <p><strong>Yearly Savings:</strong> {{ yearly_savings }}</p>
+        <p><strong>Expected Annual Return:</strong> {{ return_rate }}%</p>
+        <p><strong>Inflation Rate:</strong> {{ inflation_rate }}%</p>
+        <p><strong>Investment Duration:</strong> {{ years }} years</p>
+        <p><strong>Estimated Future Wealth:</strong> {{ wealth }}</p>
+        <p><strong>Inflation Adjusted Wealth:</strong> {{ inflation_adjusted_wealth }}</p>
+        <p><strong>Basic Advice:</strong> {{ advice }}</p>
+
+        <h3>AI Prediction Summary</h3>
+        <p>{{ ai_summary }}</p>
+
+        <h3>Wealth Score</h3>
+        <p>{{ wealth_score }}/100</p>
+
+        <h3>Scenario Predictions</h3>
+        <p><strong>Safe Scenario:</strong> {{ safe_prediction }}</p>
+        <p><strong>Balanced Scenario:</strong> {{ balanced_prediction }}</p>
+        <p><strong>Aggressive Scenario:</strong> {{ aggressive_prediction }}</p>
+
+        <h3>AI Tips</h3>
+        <ul>
+            {% for tip in tips %}
+            <li>{{ tip }}</li>
+            {% endfor %}
+        </ul>
+
+        <canvas id="wealthChart" width="400" height="200"></canvas>
+
+        <h2>Yearly Wealth Breakdown</h2>
+        <table>
+            <tr>
+                <th>Year</th>
+                <th>Total Wealth</th>
+            </tr>
+            {% for row in wealth_table %}
+            <tr>
+                <td>{{ row.year }}</td>
+                <td>{{ row.wealth }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a href="/download-pdf">Download PDF Report</a>
+        <a href="/calculator">Calculate Again</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <script>
+        const labels = {{ year_labels | tojson }};
+        const baseData = {{ yearly_data | tojson }};
+        const safeData = {{ safe_data | tojson }};
+        const balancedData = {{ balanced_data | tojson }};
+        const aggressiveData = {{ aggressive_data | tojson }};
+
+        const ctx = document.getElementById('wealthChart').getContext('2d');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Base Plan',
+                        data: baseData,
+                        borderWidth: 2,
+                        tension: 0.3,
+                        fill: false
+                    },
+                    {
+                        label: 'Safe Scenario',
+                        data: safeData,
+                        borderWidth: 2,
+                        tension: 0.3,
+                        fill: false
+                    },
+                    {
+                        label: 'Balanced Scenario',
+                        data: balancedData,
+                        borderWidth: 2,
+                        tension: 0.3,
+                        fill: false
+                    },
+                    {
+                        label: 'Aggressive Scenario',
+                        data: aggressiveData,
+                        borderWidth: 2,
+                        tension: 0.3,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

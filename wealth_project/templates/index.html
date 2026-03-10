@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Wealth Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Login</h1>
+        <p style="text-align:center; margin-bottom:20px; color:#6b7280;">
+            Login to access your wealth planner
+        </p>
+
+        <form action="/login" method="post">
+            <label>Username:</label>
+            <input type="text" name="username" required>
+
+            <label>Password:</label>
+            <input type="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p style="text-align:center; margin-top:15px;">
+            <a href="/forgot-password" style="background:none; color:#2563eb; padding:0;">Forgot Password?</a>
+        </p>
+
+        <p style="text-align:center; margin-top:20px;">
+            Don't have an account?
+            <a href="/signup" style="background:none; color:#2563eb; padding:0;">Signup here</a>
+        </p>
+    </div>
+
+</body>
+</html>

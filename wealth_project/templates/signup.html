@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - Wealth Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Signup</h1>
+        <p style="text-align:center; margin-bottom:20px; color:#6b7280;">
+            Create your account to start planning your wealth
+        </p>
+
+        <form action="/signup" method="post">
+            <label>Username:</label>
+            <input type="text" name="username" required>
+
+            <label>Password:</label>
+            <input type="password" name="password" required>
+
+            <label>Recovery Code:</label>
+            <input type="text" name="recovery_code" required>
+
+            <button type="submit">Signup</button>
+        </form>
+
+        <p style="text-align:center; margin-top:20px;">
+            Already have an account?
+            <a href="/" style="background:none; color:#2563eb; padding:0;">Login here</a>
+        </p>
+    </div>
+
+</body>
+</html>
